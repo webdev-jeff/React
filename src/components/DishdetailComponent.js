@@ -2,15 +2,17 @@ import React, {Component} from 'react';
 import {Card, CardImg, CardBody, CardTitle, CardText} from 'reactstrap';
 
 class Dishdetail extends Component {
-    constructor(props){
-        super(props);
+    componentDidMount(){
+        console.log('Dishdetail Component componentDidMount is invoked');
     }
-
+    componentDidUpdate(){
+        console.log('Dishdetail Component componentDidUpdate is invoked');
+    }
     renderComments(comments){
         if (comments != null){
-            var fmt = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
+            var fmt = new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'short', day: '2-digit'});
             const commentBody = comments.map((c)=>{
-                var date = new Date(c.date);
+                var date = new Date(Date.parse(c.date));
                 return (
                     <ul className="list-unstyled" key={c.id}>
                         <li>{c.comment}</li>
@@ -45,14 +47,17 @@ class Dishdetail extends Component {
     }
 
     render(){
-        if (this.props.selectedDish != null){
+        console.log('Dishdetail Component render is invoked');
+        if (this.props.dish != null){
             return (
-                <div className="row">
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderDish(this.props.selectedDish)}
-                    </div>
-                    <div className="col-12 col-md-5 m-1">
-                        {this.renderComments(this.props.selectedDish.comments)}
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 col-md-5 m-1">
+                            {this.renderDish(this.props.dish)}
+                        </div>
+                        <div className="col-12 col-md-5 m-1">
+                            {this.renderComments(this.props.dish.comments)}
+                        </div>
                     </div>
                 </div>
             );
