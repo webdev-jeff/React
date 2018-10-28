@@ -27,7 +27,7 @@ function Footer(props) {
             </address>
           </div>
           <div className="col-12 col-sm-4 align-self-center">
-            <div classNames="text-center">
+            <div className="text-center">
               <a className="btn btn-social-icon btn-google" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
               <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
               <a className="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
